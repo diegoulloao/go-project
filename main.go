@@ -42,7 +42,7 @@ func main() {
 				Email *string `json:"email"`
 			}
 
-			reqBody := new(requestBody)
+			reqBody := &requestBody{}
 			err := c.Bind(reqBody)
 
 			if err != nil {
@@ -63,15 +63,13 @@ func main() {
 			}
 
 			type responseBody struct {
-				ID    int    `json:"id"`
-				Name  string `json:"name"`
-				Email string `json:"email"`
+				ID int `json:"id"`
+				requestBody
 			}
 
-			c.JSON(202, responseBody{
-				ID:    len(users.List),
-				Name:  *reqBody.Name,
-				Email: *reqBody.Email,
+			c.JSON(202, &responseBody{
+				len(users.List),
+				*reqBody,
 			})
 		})
 
