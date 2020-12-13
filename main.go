@@ -7,7 +7,7 @@ import (
 
 // Modules
 import (
-	"./data/users"
+	"github.com/diegoulloao/go-project/data/users"
 )
 
 // Utils
