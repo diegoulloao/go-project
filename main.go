@@ -106,5 +106,5 @@ func main() {
 	}
 
 	// Serve
-	r.Run("localhost:" + port)
+	r.Run(":" + port)
 }
