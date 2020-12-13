@@ -1,17 +1,17 @@
 package main
 
-// Dependencies
 import (
+	// Dependencies
 	"github.com/gin-gonic/gin"
 )
 
-// Modules
 import (
+	// Modules
 	"github.com/diegoulloao/go-project/data/users"
 )
 
-// Utils
 import (
+	// Utils
 	"os"
 	"strconv"
 )
