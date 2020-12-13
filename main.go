@@ -12,6 +12,7 @@ import (
 
 // Utils
 import (
+	"os"
 	"strconv"
 )
 
@@ -97,6 +98,13 @@ func main() {
 		})
 	}
 
-	// Serve on port 3000
-	r.Run(":3000")
+	// System default port or :3000
+	var port string
+
+	if port = os.Getenv("PORT"); port == "" {
+		port = "3000"
+	}
+
+	// Serve
+	r.Run("localhost:" + port)
 }
