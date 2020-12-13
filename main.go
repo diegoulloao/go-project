@@ -98,13 +98,16 @@ func main() {
 		})
 	}
 
-	// System default port or :3000
 	var port string
 
-	if port = os.Getenv("PORT"); port == "" {
-		port = "3000"
+	// Defines heroku default port || :3000
+	if value, exists := os.LookupEnv("PORT"); exists {
+		port = ":" + value
+
+	} else {
+		port = "localhost:3000"
 	}
 
-	// Serve
-	r.Run(":" + port)
+	// Serve on port
+	r.Run(port)
 }
